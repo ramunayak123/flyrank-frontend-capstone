@@ -1,11 +1,33 @@
 <!DOCTYPE html>
-<html><head><title>Settings</title><link rel="stylesheet" href="style.css"></head>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FlyRank - Settings</title>
+<link rel="stylesheet" href="style.css">
+</head>
 <body>
-<h2>Settings</h2>
-<form>
-<input placeholder="Site Name">
-<input placeholder="Email">
-<input placeholder="API Key">
-<button>Save</button>
+<main>
+<h1>FlyRank Settings</h1>
+<form id="settingsForm" novalidate>
+  <div class="field">
+    <label for="siteName">Site Name *</label>
+    <input id="siteName" type="text" aria-describedby="siteNameError" required>
+    <span class="error" id="siteNameError" role="alert"></span>
+  </div>
+  <div class="field">
+    <label for="email">Admin Email *</label>
+    <input id="email" type="email" aria-describedby="emailError" required>
+    <span class="error" id="emailError" role="alert"></span>
+  </div>
+  <div class="field">
+    <label for="apiKey">API Key *</label>
+    <input id="apiKey" type="text" aria-describedby="apiKeyError" required>
+    <span class="error" id="apiKeyError" role="alert"></span>
+  </div>
+  <button type="submit" id="saveBtn">Save Settings</button>
+  <p id="successMsg" class="success"></p>
 </form>
-</body></html>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
