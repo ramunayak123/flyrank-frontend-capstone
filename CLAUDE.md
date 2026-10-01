@@ -1,30 +1,7 @@
-# Claude / AI Usage Documentation
+# Project Rules - FE-03 Foundations
 
-## Prompts Used
-- "Create a settings form with site name, email, api key"
-- "Make it accessible with labels and ARIA"
-- "Add client side validation"
+1. **Accessibility First:** Every input must have explicit label with for/id. No placeholder-only inputs. All errors must use role=alert, aria-live=polite, and toggle aria-invalid. Focus must move to first invalid field on submit.
 
-## What AI Generated
-- Initial HTML structure
-- Base CSS
-- Validation regex suggestions
+2. **Validation & Persistence:** Client-side validation required for all fields (required, format, min length). Save valid data to localStorage. On page load, restore from localStorage. Use textContent not innerHTML to prevent XSS.
 
-## What I Modified Manually
-- Changed error handling to use aria-describedby
-- Added invalid class styling
-- Added localStorage save/load
-- Fixed email regex to simple standard
-- Tested keyboard navigation manually
-
-## Verification
-- Tested without mouse (Tab + Enter)
-- Checked errors are visible and announced
-- Validated HTML via W3C validator mental check
-- No AI-generated code left unverified
-
-## Round 2 Compliance
-- Labels use for/id matching
-- Errors use id + aria-describedby linkage
-- role=alert for errors
-- aria-invalid toggled on error
+3. **Verification Loop:** After generating code, write manual test steps: empty submit, invalid email, short key, localStorage check, keyboard nav, screen reader announcement. Only commit after all tests pass. Use explore-plan-code loop, not single shot.
